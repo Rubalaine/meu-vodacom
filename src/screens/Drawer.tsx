@@ -21,12 +21,36 @@ const Drawer = () => {
       drawerContent={(props: any) => <DrawerContent {...props} />}
     >
       <DrawerNav.Screen name="Home" component={Home} />
-      <DrawerNav.Screen name="Services" component={Services} />
-      <DrawerNav.Screen name="Offers" component={Offers} />
-      <DrawerNav.Screen name="Gift" component={Gift} />
-      <DrawerNav.Screen name="Profile" component={Profile} />
-      <DrawerNav.Screen name="Stores" component={Stores} />
-      <DrawerNav.Screen name="About" component={About} />
+      <DrawerNav.Screen
+        name="Services"
+        component={Services}
+        options={{ swipeEnabled: false }}
+      />
+      <DrawerNav.Screen
+        name="Offers"
+        component={Offers}
+        options={{ swipeEnabled: false }}
+      />
+      <DrawerNav.Screen
+        name="Gift"
+        component={Gift}
+        options={{ swipeEnabled: false }}
+      />
+      <DrawerNav.Screen
+        name="Profile"
+        component={Profile}
+        options={{ swipeEnabled: false }}
+      />
+      <DrawerNav.Screen
+        name="Stores"
+        component={Stores}
+        options={{ swipeEnabled: false }}
+      />
+      <DrawerNav.Screen
+        name="About"
+        component={About}
+        options={{ swipeEnabled: false }}
+      />
     </DrawerNav.Navigator>
   );
 };
