@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: "space-between",
     alignItems: "center",
+    backgroundColor: "white",
   },
 });
 export default Header;

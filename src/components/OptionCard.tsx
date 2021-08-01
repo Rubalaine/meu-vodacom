@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: "white",
     marginBottom: 20,
-    elevation: 4,
+    // elevation: 4,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",

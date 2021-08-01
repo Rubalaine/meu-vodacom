@@ -1,40 +1,72 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableNativeFeedback,
+  Appearance,
+} from "react-native";
 import { Caption, Surface } from "react-native-paper";
 import Header from "../components/Header";
 import { globalStyles } from "../globalStyles";
 import { Paragraph, Title } from "react-native-paper";
 import { ScrollView } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
+import OptionCard from "./../components/OptionCard";
+import { useEffect } from "react";
 interface Props {
   navigation: any;
 }
+const colorScheme = Appearance.getColorScheme();
+let RED_COLOR = colorScheme === "dark" ? "#ee6366" : "#EF1417";
 const Home = ({ navigation }: Props) => {
+  useEffect(() => {
+    RED_COLOR = colorScheme === "dark" ? "#ee6366" : "#EF1417";
+  }, [colorScheme]);
   return (
     <View style={globalStyles.container}>
-      {/* <Image
-        source={require("../../assets/images/bg-3.png")}
-        style={[
-          StyleSheet.absoluteFillObject,
-          {
-            width: "100%",
-            height: "100%",
-          },
-        ]}
-        resizeMode="cover"
-        blurRadius={10}
-      /> */}
       <Header navigation={navigation} />
-      <View style={styles.wrapper}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          padding: 20,
+        }}
+      >
         <View style={styles.userInfo}>
           <Caption style={styles.userCaption}>22 de janeiro de 2021</Caption>
-          <Title style={styles.userName}>Olá Maruano!</Title>
+          <Title style={styles.userName}>Olá Albertino!</Title>
           <Paragraph style={styles.userWellcome}>
             Bem-Vindo ao Meu Vodacom
           </Paragraph>
         </View>
 
         <Surface style={styles.mainAccount}>
+          {/* <View
+            style={{
+              position: "absolute",
+              top: -35,
+              left: 0,
+              right: 0,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <TouchableNativeFeedback>
+              <View
+                style={{
+                  padding: 10,
+                  backgroundColor: "#EF1417",
+                  borderRadius: 60,
+                  borderColor: "white",
+                  borderWidth: 2,
+                }}
+              >
+                <Ionicons name="ios-add-outline" color="white" size={30} />
+              </View>
+            </TouchableNativeFeedback>
+          </View> */}
+
           <Paragraph
             style={[
               styles.paragraph,
@@ -66,9 +98,13 @@ const Home = ({ navigation }: Props) => {
             aos 22 de janeiro de 2020
           </Paragraph>
         </Surface>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ marginBottom: 20 }}
+        >
           <Surface style={[styles.balance]}>
-            <Ionicons name="ios-call-outline" size={30} color="#EF1417" />
+            <Ionicons name="ios-call-outline" size={30} color={RED_COLOR} />
             <Title style={styles.title}>1500 MT</Title>
             <Paragraph style={styles.paragraph}>Chamadas</Paragraph>
           </Surface>
@@ -76,7 +112,7 @@ const Home = ({ navigation }: Props) => {
             <Ionicons
               name="ios-swap-vertical-outline"
               size={30}
-              color="#EF1417"
+              color={RED_COLOR}
             />
 
             <Title style={styles.title}>200 MB</Title>
@@ -86,21 +122,40 @@ const Home = ({ navigation }: Props) => {
             <Ionicons
               name="ios-chatbubbles-outline"
               size={30}
-              color="#EF1417"
+              color={RED_COLOR}
             />
             <Title style={styles.title}>30 SMS</Title>
             <Paragraph style={styles.paragraph}>Mensagens</Paragraph>
           </Surface>
         </ScrollView>
-      </View>
+
+        <OptionCard message="Recaregar" navigation={navigation} to="Jackpot" />
+        <OptionCard
+          message="Converter Megas"
+          navigation={navigation}
+          to="Internet"
+        />
+        <OptionCard
+          message="Enviar Crédito"
+          navigation={navigation}
+          to="TopOffers"
+        />
+        <OptionCard
+          message="Extra Jackpot"
+          navigation={navigation}
+          to="ExtraJackpot"
+        />
+        <OptionCard
+          message="Ofertas Top"
+          navigation={navigation}
+          to="ExtraJackpot"
+        />
+      </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  wrapper: {
-    padding: 20,
-  },
   userInfo: {
     marginBottom: 20,
     paddingHorizontal: 10,
@@ -122,7 +177,7 @@ const styles = StyleSheet.create({
     color: "#625d5b",
   },
   title: {
-    color: "#EF1417",
+    color: RED_COLOR,
 
     fontSize: 28,
     fontFamily: "Inter_900Black",
@@ -130,14 +185,15 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     fontFamily: "Inter_400Regular",
-    color: "#EF1417",
+    color: RED_COLOR,
   },
   mainAccount: {
-    backgroundColor: "#EF1417",
+    backgroundColor: RED_COLOR,
     padding: 20,
     borderRadius: 25,
     marginBottom: 20,
     alignItems: "center",
+    position: "relative",
   },
   balance: {
     width: 150,

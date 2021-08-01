@@ -5,6 +5,7 @@ import { Paragraph } from "react-native-paper";
 import AppBar from "../components/AppBar";
 import OptionCard from "../components/OptionCard";
 import { globalStyles } from "../globalStyles";
+import Carroussel from "../components/Carroussel";
 interface Props {
   navigation: any;
 }
@@ -13,11 +14,14 @@ const About = ({ navigation }: Props) => {
     <View style={globalStyles.container}>
       <AppBar page="Sobre" navigation={navigation} />
       <ScrollView
+        showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           paddingHorizontal: 20,
           paddingTop: 20,
         }}
       >
+        <Carroussel />
+
         <OptionCard
           message="Termos e Condições"
           navigation={navigation}

@@ -31,7 +31,7 @@ const DrawerContent = (props: any) => {
                     alignItems: "flex-start",
                   }}
                 >
-                  <Title style={styles.title}>Maruano Júlio</Title>
+                  <Title style={styles.title}>Albertino José da Silva</Title>
                   <Paragraph style={styles.paragraph}>842798702</Paragraph>
                   <Pressable>
                     <Text style={styles.font}>+ Adicionar perfil</Text>
@@ -42,14 +42,14 @@ const DrawerContent = (props: any) => {
           </Drawer.Section>
 
           <Drawer.Section style={styles.drawerSection}>
-            <DrawerItem
+            {/* <DrawerItem
               icon={({ color, size }) => (
                 <IonIcons name="ios-home-outline" color={color} size={size} />
               )}
               label="Inicio"
               onPress={() => props.navigation.navigate("Home")}
               labelStyle={styles.font}
-            />
+            /> */}
             <DrawerItem
               icon={({ color, size }) => (
                 <IonIcons name="ios-cog-outline" color={color} size={size} />

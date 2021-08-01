@@ -29,7 +29,9 @@ const Profile = ({ navigation }: Props) => {
         <View>
           <View style={styles.field}>
             <Caption style={styles.label}>Nome</Caption>
-            <Paragraph style={styles.paragraph}>Maruano Pedro Julio</Paragraph>
+            <Paragraph style={styles.paragraph}>
+              Albertino José da Silva
+            </Paragraph>
           </View>
           <View style={styles.field}>
             <Caption style={styles.label}>Meu Número</Caption>
@@ -65,6 +67,7 @@ const styles = StyleSheet.create({
     paddingTop: 100,
     padding: 20,
     borderColor: "#eee",
+    backgroundColor: "#ffff",
     borderWidth: 1,
     margin: 20,
     marginTop: 120,

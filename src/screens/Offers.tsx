@@ -4,6 +4,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import AppBar from "../components/AppBar";
 import OptionCard from "../components/OptionCard";
 import { globalStyles } from "../globalStyles";
+import Carroussel from "../components/Carroussel";
 interface Props {
   navigation: any;
 }
@@ -12,11 +13,14 @@ const Offers = ({ navigation }: Props) => {
     <View style={globalStyles.container}>
       <AppBar page="Selecione o tipo de oferta" navigation={navigation} />
       <ScrollView
+        showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           paddingHorizontal: 20,
           paddingTop: 20,
         }}
       >
+        <Carroussel />
+
         <OptionCard message="Jackpot" navigation={navigation} to="Jackpot" />
         <OptionCard message="Internet" navigation={navigation} to="Internet" />
         <OptionCard

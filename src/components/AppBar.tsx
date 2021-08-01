@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { Paragraph } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 interface Props {
@@ -16,16 +16,23 @@ const AppBar = ({ page, navigation }: Props) => {
         onPress={() => navigation.goBack()}
       />
       <Paragraph style={styles.paragraph}>{page}</Paragraph>
-      <Ionicons name="ios-at-circle-outline" size={24} color="#050505" />
+      <Image
+        source={require("../../assets/images/logo.png")}
+        style={{
+          width: 24,
+          height: 24,
+        }}
+      />
     </View>
   );
 };
 const styles = StyleSheet.create({
   wrapper: {
     width: "100%",
-    height: 40,
+    // height: 40,
     padding: 20,
-    marginVertical: 10,
+    backgroundColor: "white",
+    marginBottom: 10,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
